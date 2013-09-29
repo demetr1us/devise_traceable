@@ -2,6 +2,7 @@ class DeviseCreate<%= table_name.camelize.singularize %>Tracings < ActiveRecord:
   def self.up
     create_table :<%= table_name.singularize %>_tracings do |t|
       t.integer  :<%= table_name.classify.foreign_key  %>
+  t.string :ip_address
   t.datetime :sign_in_at
   t.datetime :sign_out_at
   #Any additional fields here
