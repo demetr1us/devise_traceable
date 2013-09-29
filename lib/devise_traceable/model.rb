@@ -11,7 +11,7 @@ module Devise
     module Traceable
       def stamp!
         new_current = Time.now
-        "#{self.class}Tracing".constantize.create(:sign_in_at => self.current_sign_in_at, :ip_address => self.current_sign_in_ip, :sign_out_at => new_current, "#{self.class}".foreign_key.to_sym => self.id)
+        "#{self.class}Tracing".constantize.create(:sign_in_at => new_current, :ip_address => self.current_sign_in_ip, :sign_out_at => new_current, "#{self.class}".foreign_key.to_sym => self.id)
       end
     end
   end
